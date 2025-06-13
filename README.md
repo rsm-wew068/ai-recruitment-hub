@@ -1,5 +1,5 @@
 ---
-title: Shiny for Python template
+title: Recruitment Ai System
 emoji: 🌍
 colorFrom: yellow
 colorTo: indigo
