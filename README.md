@@ -1,5 +1,5 @@
 ---
-title: Recruitment AI Agent
+title: AI Recruitment Hub
 emoji: 🌍
 colorFrom: pink
 colorTo: indigo
