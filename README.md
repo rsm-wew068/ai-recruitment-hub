@@ -1,7 +1,7 @@
 ---
-title: group13
+title: Recruitment AI Agent
 emoji: 🌍
-colorFrom: yellow
+colorFrom: pink
 colorTo: indigo
 sdk: docker
 pinned: false
