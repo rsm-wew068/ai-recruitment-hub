@@ -4,16 +4,16 @@ import json
 import requests
 from dotenv import load_dotenv
 from shiny import reactive, render, ui
-
-# Access code/context.py
-
-from context import get_all_candidates
-from llm_connect import get_response
-
 from datetime import datetime
 from fpdf import FPDF
 from PyPDF2 import PdfReader
 import markdown
+
+# Access code/context.py
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'code'))
+
+from context import get_all_candidates
+from llm_connect import get_response
 
 # Load Calendly token
 load_dotenv()
@@ -73,9 +73,25 @@ def export_email_as_pdf(name, email_text):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.set_font("Arial", size=12)
+    pdf.set_font("Arial", size=10)  # Reduced font size
+    
+    # Add title
+    pdf.set_font("Arial", "B", size=12)
+    pdf.cell(0, 10, f"Interview Email for {name}", ln=True, align="C")
+    pdf.ln(5)
+    
+    # Reset font for content
+    pdf.set_font("Arial", size=10)
+    
+    # Split text into lines and process each line
     for line in email_text.strip().split("\n"):
-        pdf.multi_cell(0, 10, line)
+        if line.strip():  # Only process non-empty lines
+            # Use multi_cell with proper width (0 = full width minus margins)
+            encoded_line = line.encode('latin-1', 'replace').decode('latin-1')
+            pdf.multi_cell(0, 8, encoded_line, ln=True)
+        else:
+            pdf.ln(4)  # Add spacing for empty lines
+    
     output_dir = os.path.join(os.path.dirname(__file__), "emails")
     os.makedirs(output_dir, exist_ok=True)
     filename = os.path.join(output_dir, f"{name.replace(' ', '_')}.pdf")
@@ -200,13 +216,30 @@ def server(input, output, session):
                 # Full path to PDF file
                 pdf_path = os.path.join(output_dir, filename)
 
-                # Generate PDF
+                # Generate PDF with better formatting
                 pdf = FPDF()
                 pdf.add_page()
                 pdf.set_auto_page_break(auto=True, margin=15)
-                pdf.set_font("Arial", size=12)
+                
+                # Add title
+                pdf.set_font("Arial", "B", size=12)
+                title = f"Interview Email for {c['name']}"
+                pdf.cell(0, 10, title, ln=True, align="C")
+                pdf.ln(5)
+                
+                # Reset font for content
+                pdf.set_font("Arial", size=10)
+                
+                # Split text into lines and process each line
                 for line in email_text.strip().split("\n"):
-                    pdf.multi_cell(0, 10, line)
+                    if line.strip():  # Only process non-empty lines
+                        # Encode text to handle special characters
+                        encoded_line = line.encode('latin-1', 'replace')
+                        decoded_line = encoded_line.decode('latin-1')
+                        pdf.multi_cell(0, 8, decoded_line, ln=True)
+                    else:
+                        pdf.ln(4)  # Add spacing for empty lines
+                
                 pdf.output(pdf_path)
 
                 # Store PDF
