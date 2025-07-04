@@ -143,13 +143,29 @@ def server(input, output, session):
             hiring_manager_notes=notes_override or job.get("notes", "")
         )
 
+        # Generate PDF with proper formatting
         pdf = FPDF()
         pdf.add_page()
         pdf.set_auto_page_break(auto=True, margin=15)
-        pdf.set_font("Arial", size=12)
+        
+        # Add title
+        pdf.set_font("Arial", "B", size=12)
+        title = f"Offer Letter - {ctx.get('Name', 'Candidate')}"
+        pdf.cell(0, 10, title, ln=True, align="C")
+        pdf.ln(5)
+        
+        # Reset font for content
+        pdf.set_font("Arial", size=10)
 
+        # Process each line with proper encoding
         for line in offer.split("\n"):
-            pdf.multi_cell(0, 10, line)
+            if line.strip():  # Only process non-empty lines
+                # Encode text to handle special characters
+                encoded_line = line.encode('latin-1', 'replace')
+                decoded_line = encoded_line.decode('latin-1')
+                pdf.multi_cell(0, 8, decoded_line, ln=True)
+            else:
+                pdf.ln(4)  # Add spacing for empty lines
 
         os.makedirs(f'/tmp/data/{job_id}/offers', exist_ok=True)
         pdf_path = f'/tmp/data/{job_id}/offers/Offer_Letter_{candidate_id}.pdf'
@@ -187,13 +203,29 @@ def server(input, output, session):
             legal_notes=job.get("legal_notes", "Subject to U.S. labor law.")
         )
 
+        # Generate PDF with proper formatting
         pdf = FPDF()
         pdf.add_page()
         pdf.set_auto_page_break(auto=True, margin=15)
-        pdf.set_font("Arial", size=12)
+        
+        # Add title
+        pdf.set_font("Arial", "B", size=12)
+        title = f"Employment Contract - {ctx.get('Name', 'Candidate')}"
+        pdf.cell(0, 10, title, ln=True, align="C")
+        pdf.ln(5)
+        
+        # Reset font for content
+        pdf.set_font("Arial", size=10)
 
+        # Process each line with proper encoding
         for line in contract.split("\n"):
-            pdf.multi_cell(0, 10, line)
+            if line.strip():  # Only process non-empty lines
+                # Encode text to handle special characters
+                encoded_line = line.encode('latin-1', 'replace')
+                decoded_line = encoded_line.decode('latin-1')
+                pdf.multi_cell(0, 8, decoded_line, ln=True)
+            else:
+                pdf.ln(4)  # Add spacing for empty lines
 
         os.makedirs(f'/tmp/data/{job_id}/contracts', exist_ok=True)
         pdf_path = f'/tmp/data/{job_id}/contracts/Contract_{candidate_id}.pdf'
