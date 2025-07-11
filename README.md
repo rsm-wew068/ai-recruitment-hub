@@ -97,3 +97,7 @@ A modern, end-to-end AI-powered recruitment platform for job creation, candidate
 
 - FPDF is used for all PDF output. Font substitution warnings (e.g., Arial → Helvetica) are normal and do not affect PDF creation.
 - Only Latin-1 characters are supported in PDFs due to FPDF limitations. Unsupported characters will be replaced automatically.
+
+---
+
+### 🤗 [Hugging Face Demo](https://github.com/rsm-wew068/graph-ai-task-manager.git)
