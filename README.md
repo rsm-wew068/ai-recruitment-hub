@@ -1,5 +1,4 @@
-# AI Recruitment Hub 🌍
-
+#  🌍 [AI Recruitment Hub](https://github.com/rsm-wew068/graph-ai-task-manager.git)
 A modern, end-to-end AI-powered recruitment platform for job creation, candidate management, interview scheduling, analytics, and automated document generation.
 
 ---
@@ -100,4 +99,4 @@ A modern, end-to-end AI-powered recruitment platform for job creation, candidate
 
 ---
 
-### 🤗 [Hugging Face Demo](https://github.com/rsm-wew068/graph-ai-task-manager.git)
+
