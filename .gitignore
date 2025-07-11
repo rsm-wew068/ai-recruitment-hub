@@ -1,4 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
 
-.venv/
-__pycache__
+# Virtual environments
+.venv
+
+# Keys
+.env
+
+# other
 .DS_Store
+main.py
+push-to-org.sh
+pyproject.toml

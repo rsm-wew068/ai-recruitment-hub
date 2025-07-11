@@ -1,12 +1,11 @@
 import json
 import os
-import shutil
-    
-CONTEXT_PATH = "/tmp/data/context.json"
+
+CONTEXT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "milestone2", "data", "mcp_context.json"))
 
 def init_context():
-    if not os.path.exists("/tmp/data"):
-        os.makedirs("/tmp/data")
+    if not os.path.exists("data"):
+        os.makedirs("data")
     if not os.path.exists(CONTEXT_PATH):
         with open(CONTEXT_PATH, "w") as f:
             json.dump({"jobs": {}, "candidates": {}, 'employees': {}}, f)

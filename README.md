@@ -1,122 +1,153 @@
----
-title: AI Recruitment Hub
-emoji: 🌍
-colorFrom: pink
-colorTo: indigo
-sdk: docker
-pinned: false
-license: mit
----
+## Group Project GitHub repo for MGTA 495
 
-# AI Recruitment Hub 🌍
+This is repo for the Group Project in MGTA 495
 
-A modern, end-to-end AI-powered recruitment platform for job creation, candidate management, interview scheduling, analytics, and automated document generation.
+### Command keyboard short-cut
 
----
+Copy-and-pasting commands into a terminal can a bit cumbersome. To facilitate the process, you can add a keyboard shortcut to VS Code to send code to a terminal. Use the command palette and type "Preferences: Open Keyboard Shortcuts (JSON)". If this file is empty, you can copy and paste the below into the file and save it. If you already have shortcuts defined, add just the dictionary and save the file. Once the shortcut is defined, you can use ALT+Enter to send the command under the cursor to the terminal or you can select multiple lines to send. You can change "alt" to "cmd" or "ctrl" if you prefer.
 
-## Project Structure
-
-```
-├── app.py                # Main Shiny app entrypoint
-├── Dockerfile            # Container setup
-├── pyproject.toml        # Python dependencies
-├── data/                 # Source data (resumes, emails, context)
-├── code/                 # Core logic (context, LLM connection)
-├── server/               # Shiny server logic for each module (backend logic)
-│   ├── candidate_profile.py      # Candidate profile backend logic
-│   ├── correlation_analysis.py   # Correlation analysis backend logic
-│   ├── document_creation.py      # Offer/contract PDF generation backend
-│   ├── home.py                   # Home/dashboard backend logic
-│   ├── interview_scheduler.py    # Interview scheduling backend logic
-│   ├── job_creation.py           # Job creation backend logic
-│   ├── plot_generation.py        # Analytics/chart backend logic
-├── ui/                   # Shiny UI components for each module (frontend layout)
-│   ├── candidate_profile.py      # Candidate profile UI
-│   ├── chart_generation.py       # Analytics/chart UI
-│   ├── correlation_analysis.py   # Correlation analysis UI
-│   ├── document_creation.py      # Offer/contract UI
-│   ├── home.py                   # Home/dashboard UI
-│   ├── interview_scheduler.py    # Interview scheduling UI
-│   ├── job_creation.py           # Job creation UI
-├── static/, styles/      # Custom CSS
+```python
+[
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.terminal.runSelectedText",
+        "when": "editorLangId == 'shellscript' || editorLangId == 'markdown'"
+    },
+]
 ```
 
----
+### Technical details
 
-## End-to-End Workflow
+For Milestone 2 and beyond, we will be using UV for python package management. UV works on Windows, macOS, and Linux. First, open a terminal and determine if UV is already accessible:
 
-1. **Job Creation:** Create job postings with details and requirements.
-2. **Resume Upload:** Upload and parse candidate resumes, auto-link to jobs.
-3. **Candidate Management:** Review, filter, and match candidates to jobs.
-4. **Interview Scheduling:** Select candidates, generate LLM-powered interview emails, and send scheduling links (Calendly integration).
-5. **Analytics:** Visualize candidate-job fit and correlations with interactive charts.
-6. **Document Generation:** Auto-generate offer letters and contracts using LLMs, render as PDFs, and allow editing.
-7. **Download & Edit:** Download, preview, and edit all generated documents.
+```bash
+uv --version
+```
 
----
+If you see a version number (e.g., 0.6.x), proceed to the next steps. If not, you can install `uv` using the command below. Only do this, however, if you don't already have UV installed:
 
-## Full Pipeline
+```bash
+pip install --user uv
+```
 
-- **Data Ingestion:** Upload resumes (PDF), parse and extract candidate info.
-- **Job Context:** Create and manage job postings, stored in `data/context.json`.
-- **LLM Integration:** Use LLMs for drafting emails, offer letters, and contracts.
-- **Scheduling:** Integrate with Calendly for interview scheduling links.
-- **PDF Generation:** Render all communications and documents as PDFs, organized by job/candidate.
-- **Analytics:** Generate charts and correlation plots for data-driven hiring.
+**Setup the group repo**
 
----
+First, make sure that you connected VS Code to the repo you cloned from GitHub (e.g., ~/.git/rsm-mgta495-xyz123). Then create a virtual environment using the command below:
 
-## How to Use the App
+```bash
+uv venv --python 3.12.7  # Create virtual environment with Python 3.12.7
+```
 
-1. **Navigate:**
-   - Use the navbar to access Home, Job Creation, Candidate Profile, Interview Scheduler, Analytics, and Document Creation.
-3. **Upload & Manage:**
-   - Upload resumes, create jobs, and manage candidate profiles.
-4. **Schedule Interviews:**
-   - Select candidates, generate and send interview emails with scheduling links.
-5. **Generate Documents:**
-   - Create offer letters and contracts, preview and download as PDFs.
-6. **Edit & Download:**
-   - Edit generated documents and download the final versions.
+To use the environment in a terminal, you will need to `activate` it using the command below:
 
----
+```bash
+source .venv/bin/activate
+```
 
-## Technical Architecture
+**Package Management**
 
-- **Frontend:** Shiny for Python (modular UI in `ui/`)
-- **Backend:** Shiny server modules (`server/`), LLM integration, PDF generation
-- **Data:** All context and files in `/data` and `/tmp/data` (mirrored for runtime)
-- **LLM:** Uses Llama (via custom API) or Google Generative AI (Gemini) via `llm_connect.py`
-- **Scheduling:** Calendly API integration
-- **PDFs:** Generated with FPDF, stored per job/candidate
-- **Containerization:** Docker for reproducible deployment
+Once you have the basic setup done using the code chunk above you should be able to add python packages. The `pyrsm` package will install several dependencies that you will likely need (e.g., sklearn, pandas, etc.).
 
----
+```bash
+uv add pyrsm python-dotenv openai google-generativeai anthropic requests langchain langchain_openai langchain-google-genai langchain_anthropic langchain_community pydantic pydantic-ai ipywidgets
+```
 
-## Recently Implemented Improvements
+To double check if the package install worked as expected, run the command below.
 
-- Robust PDF generation (handles encoding, layout, and font issues)
-- Improved error handling for missing files and directories
-- Modularized server and UI code for maintainability
-- Enhanced document editing and download features
-- Streamlined LLM prompt engineering for better document quality
+```bash
+uv run python -c "import requests; print(requests.__version__)"
+```
 
----
+In VS Code, you should now be able to select the `.venv` python environment to use in your Jupyter Notebooks.
 
-## PDF Generation Notes
+**Using dotenv to manage API Keys**
 
-- FPDF is used for all PDF output. Font substitution warnings (e.g., Arial → Helvetica) are normal and do not affect PDF creation.
-- Only Latin-1 characters are supported in PDFs due to FPDF limitations. Unsupported characters will be replaced automatically.
+Put the code below into a terminal and then copy in your API token for LLama. Make sure the API key is not shown *anywhere* in your code or notebooks! Also, NEVER push a `.env` file with keys, passwords, or secrets to GitHub.
 
----
+```bash
+echo "LLAMA_API_KEY=copy-your-api-token-here" >> ~/.env
+```
 
-## Troubleshooting
+You can get a free API key from Google Gemini at <https://aistudio.google.com/apikey>{target="_blank"}. You may need to use a personal Gmail account to access Google AI Studio. Once you have the key, add it to your `.env` file using the command below:
 
-- **FileNotFoundError:** Ensure all required folders (e.g., `data/resumes`) exist before running.
-- **PDF Generation Errors:**
-  - If you see "Not enough horizontal space to render a single character", update to the latest code (handles encoding and layout).
-  - Font substitution warnings (Arial → Helvetica) are safe to ignore.
-  - Only Latin-1 characters are supported in PDFs; other characters will be replaced.
-- **LLM/API Issues:** Check API keys in your environment and network access.
-- **Docker Issues:** Rebuild the image if dependencies change: `docker build --no-cache -t ai-recruitment-hub .`
-- **General:** Check logs for detailed error messages and ensure all dependencies in `pyproject.toml` are installed.
+```bash
+echo "GEMINI_API_KEY=copy-your-api-token-here" >> ~/.env
+```
+
+> Note: If you wan to double check if the keys were correctly added to your `.env` file, run the command below.
+
+```bash
+code ~/.env
+```
+
+**Push changes**
+
+At this point, you can commit your changes to git. Before you run the code below, however, make sure there is not a `.env` file in your repo and that no jupyter notebooks show any of your API keys.
+
+```bash
+git add .
+git commit -m "init 2025"
+git push
+```
+
+### Using UV for other projects
+
+The standard approach for projects will be to create a new folder and setup a virtual environment specifically for that project. For example, lets say your new project will be `test_project`. You could start with the commands below:
+
+```
+cd ~;
+mkdir test_project;
+cd test_project;
+```
+
+Then initialize your project environment:
+
+```bash
+uv init .                # Initialize UV in current directory
+```
+
+```bash
+uv venv --python 3.12.7  # Create virtual environment with Python 3.12.7
+```
+
+In VS Code, you should be able to select the `.venv` python environment to use in your Jupyter Notebooks. To use the environment in a terminal, you will need to `activate` it using the command below:
+
+```bash
+source .venv/bin/activate
+```
+
+Then `add` the python packages you need just like we did above. If you plan to work with Jupyter notebooks (*.ipynb files) in your new project, you will need to install notebook dependencies using the below:
+
+```bash
+uv add ipykernel jupyter
+```
+
+Common UV commands for managing packages are listed below. Note that these will give directory specific results:
+
+```bash
+uv add <package-name>    # Install a package
+uv remove <package-name> # Remove a package
+uv pip list              # List installed packages in current directory
+uv run python-file.py    # Run a Python file using the virtual environment
+```
+
+For more information about UV watch:
+
+* <https://www.youtube.com/watch?v=qh98qOND6MI>{target="_blank"}
+* <https://www.datacamp.com/tutorial/python-uv>{target="_blank"}
+* <https://github.com/astral-sh/uv>{target="_blank"}
+
+### Trouble shooting
+
+If, for some reason, you want to reset the project, run the below to get to the project directory of your choice. Check that the `pwd` command shows you the directory you are trying to clean up.
+
+```bash
+cd ~/test_project
+pwd
+```
+
+Then run the below. Note that is a DESTRUCTIVE operation. Double and triple check that only the things you want to remove are listed below. There is NO UNDO for this operation:
+
+```bash
+rm -rf .git .venv/ .python-version main.py pyproject.toml uv.lock
+```

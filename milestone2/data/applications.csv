@@ -1,0 +1,31 @@
+candidate_id,resume_file,email,location,education,years_experience,job_id,application_date,source
+54b6eac4-c94c-4644-9da5-2aae116dc79d,54b6eac4-c94c-4644-9da5-2aae116dc79d.pdf,heatherturner@example.com,"New York, NY",Bachelor's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-05,Indeed
+2f5a570e-0250-43d9-8907-654b353eda11,2f5a570e-0250-43d9-8907-654b353eda11.pdf,johnwillis@example.com,"Seattle, WA",Master's Degree,3,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-12,Referral
+4fb131af-5202-414d-bc24-55020cf4d829,4fb131af-5202-414d-bc24-55020cf4d829.pdf,tonygraves@example.com,"San Francisco, CA",Master's Degree,9,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-07,Campus Recruiting
+de820d16-f4b2-48d3-9b9d-626d4ba0e8cd,de820d16-f4b2-48d3-9b9d-626d4ba0e8cd.pdf,marissadrake@example.com,"New York, NY",PhD,6,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-09,Indeed
+020bb618-c3f1-47b8-8a2d-a25879b01173,020bb618-c3f1-47b8-8a2d-a25879b01173.pdf,luiswilliams@example.com,"San Francisco, CA",Bachelor's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-18,Referral
+710b3861-c06c-41bc-8df1-b05524abc855,710b3861-c06c-41bc-8df1-b05524abc855.pdf,jorgepadilla@example.com,"Seattle, WA",PhD,3,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-05-05,Company Website
+efa1bfc1-cf6d-4b18-9ca8-d7c4bc90efca,efa1bfc1-cf6d-4b18-9ca8-d7c4bc90efca.pdf,melissawhitaker@example.com,"Chicago, IL",Master's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-25,LinkedIn
+f4cd8ed9-d76e-430e-9c87-e9da735db3f7,f4cd8ed9-d76e-430e-9c87-e9da735db3f7.pdf,melaniegolden@example.com,"San Francisco, CA",Bachelor's Degree,5,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-14,Company Website
+096946f9-8ffa-4238-9297-9c0052599845,096946f9-8ffa-4238-9297-9c0052599845.pdf,cindylambert@example.com,"San Francisco, CA",PhD,7,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-08,Indeed
+7482a256-60c3-4194-9d22-20d5004e3bd9,7482a256-60c3-4194-9d22-20d5004e3bd9.pdf,cristianshaffer@example.com,"Chicago, IL",Bachelor's Degree,8,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-12,Referral
+8829c16f-dba9-4632-81b5-b6bd841dc81c,8829c16f-dba9-4632-81b5-b6bd841dc81c.pdf,michaelhernandez@example.com,"Chicago, IL",Master's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-22,Referral
+7d2170b3-ec8d-4024-b915-c8c9ac6aa495,7d2170b3-ec8d-4024-b915-c8c9ac6aa495.pdf,alanwhite@example.com,"Austin, TX",PhD,5,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-24,Company Website
+c95788ab-42df-4277-b45c-102d4529df36,c95788ab-42df-4277-b45c-102d4529df36.pdf,alexanderprince@example.com,"New York, NY",Bachelor's Degree,8,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-01,Company Website
+b2d14db6-e1c2-4156-885e-309671cdd52e,b2d14db6-e1c2-4156-885e-309671cdd52e.pdf,terrischwartz@example.com,"New York, NY",Master's Degree,1,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-23,Company Website
+40157b49-1976-4efb-bd27-3e7bf93c94e3,40157b49-1976-4efb-bd27-3e7bf93c94e3.pdf,dawnosborn@example.com,"Chicago, IL",Bachelor's Degree,9,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-14,Referral
+f136d87a-9049-47cc-b0af-0256efd7daf4,f136d87a-9049-47cc-b0af-0256efd7daf4.pdf,melissabrady@example.com,"Austin, TX",Master's Degree,10,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-10,LinkedIn
+7fd0003c-36e5-4bd4-9b64-5381c378cc79,7fd0003c-36e5-4bd4-9b64-5381c378cc79.pdf,coreymccoydds@example.com,"Chicago, IL",Master's Degree,3,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-18,Indeed
+6bb27c30-c569-4050-8394-ebe1fd23df4f,6bb27c30-c569-4050-8394-ebe1fd23df4f.pdf,nancywilliams@example.com,"Austin, TX",PhD,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-24,Indeed
+24845465-fcbc-451a-9705-37ce4893a06e,24845465-fcbc-451a-9705-37ce4893a06e.pdf,brandonmartin@example.com,"San Francisco, CA",Master's Degree,4,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-18,Indeed
+da26a5b3-05ca-4e3d-b96c-dfecf5ed1e23,da26a5b3-05ca-4e3d-b96c-dfecf5ed1e23.pdf,jenniferhaas@example.com,"Seattle, WA",Master's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-18,Company Website
+c12322b3-d288-4edd-afca-0f5f82bcfd18,c12322b3-d288-4edd-afca-0f5f82bcfd18.pdf,laurenpowers@example.com,"Chicago, IL",Master's Degree,5,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-12,Indeed
+1e7017b4-a109-4468-a048-cc2c032593ce,1e7017b4-a109-4468-a048-cc2c032593ce.pdf,jasonwilcox@example.com,"Austin, TX",Master's Degree,2,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-04,Campus Recruiting
+f7d40321-23cb-4287-9918-0bb96bec9a01,f7d40321-23cb-4287-9918-0bb96bec9a01.pdf,jenniferrodriguez@example.com,"Chicago, IL",Master's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-26,Indeed
+29390976-dcef-4922-b710-4f195f444b7c,29390976-dcef-4922-b710-4f195f444b7c.pdf,timothyfoster@example.com,"Chicago, IL",Bachelor's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-07,Indeed
+6160ec22-4d63-4a89-89e1-4bf8089bc2d2,6160ec22-4d63-4a89-89e1-4bf8089bc2d2.pdf,brianflores@example.com,"Austin, TX",Bachelor's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-24,LinkedIn
+0c7c3c76-f39f-4068-8dc2-e89672acf5d8,0c7c3c76-f39f-4068-8dc2-e89672acf5d8.pdf,jerryfishermd@example.com,"Austin, TX",Bachelor's Degree,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-16,LinkedIn
+982d4b52-c470-4f48-ba1d-c090f6acccb5,982d4b52-c470-4f48-ba1d-c090f6acccb5.pdf,davidsloan@example.com,"New York, NY",Master's Degree,4,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-03-28,Indeed
+02401398-e3b5-4309-a235-b8aa164ba85f,02401398-e3b5-4309-a235-b8aa164ba85f.pdf,nathanrodriguez@example.com,"Austin, TX",Bachelor's Degree,8,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-21,Company Website
+f3dcc8de-5ce1-4b90-a6b8-5c9d6b5ab8c7,f3dcc8de-5ce1-4b90-a6b8-5c9d6b5ab8c7.pdf,stephenhunt@example.com,"San Francisco, CA",PhD,0,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-05-02,Company Website
+b823daf8-4d51-4dd0-adcb-8f990e77dd40,b823daf8-4d51-4dd0-adcb-8f990e77dd40.pdf,katiemckenzie@example.com,"Chicago, IL",PhD,9,c143e4c4-0444-45b9-b03f-31c48a310cd0,2025-04-11,Referral
